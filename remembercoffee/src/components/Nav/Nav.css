@@ -10,11 +10,12 @@ nav {
   }
   
   a {
-    color: #fed420;
+    color:white;
+    text-decoration:none; 
   }
   
   a:hover {
-    color: #fed420;
+    color: papayawhip;
     text-decoration: none;
   }
   
