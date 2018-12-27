@@ -1,4 +1,9 @@
-.App {
+html {
+  /* background-image: url("./components/Nav/images/gradient3.jpg"); */
+  font-family: 'Poppins', sans-serif;
+}
+
+/* .App {
   text-align: center;
 }
 
@@ -29,4 +34,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
