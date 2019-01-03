@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Nav from "./components/Nav";
+import Title from "./components/Title";
 import Jumbotron from "./components/Jumbotron";
 import Footer from "./components/Footer";
 import pic1 from "./components/Nav/images/pic1.jpg";
@@ -55,14 +56,14 @@ class App extends Component {
           correct: "true"
 
         });
-        console.log("%cyou guessed correctly", "color: green");
+        console.log("%ccorrect!", "color: green");
       } else {
         this.setState({
           score: this.state.score + 1,
           topScore: this.state.topScore,
           array: newArray
         });
-        console.log("%cyou guessed correctly", "color: green");
+        console.log("%ccorrect :/", "color: green");
       }
     } else {
       const found = newArray.includes(elem);
@@ -76,7 +77,7 @@ class App extends Component {
             array: newArray,
             correct: "true"
           });
-          console.log("%cyou guessed correctly", "color: green");
+          console.log("%ccorrect!", "color: green");
         } else {
           this.setState({
             score: this.state.score + 1,
@@ -85,7 +86,7 @@ class App extends Component {
             correct: "true"
 
           });
-          console.log("%cyou guessed correctly", "color: green");
+          console.log("%ccorrect!", "color: green");
         }
 
       } else {
@@ -95,7 +96,7 @@ class App extends Component {
           array: [],
           correct: "false"
         });
-        console.log("%cyou guessed incorrectly", "color: red");
+        console.log("%cincorrect :/", "color: red");
       }
     }
 
@@ -105,10 +106,14 @@ class App extends Component {
 
 
   render() {                                // RENDERS NAV, JUMBOTRON, AND FOOTER 
+                             
     return (
       <div>
         <Nav
-          title="Coffee Brain:">
+          title="Coffee Brain:"
+          score={this.state.currentScore}
+          topScore={this.state.topScore}
+          rightWrong={this.state.rightWrong}>
         </Nav>
         <Jumbotron />
         {/* DISPLAYS IMAGES IN JUMBOTRON  */}

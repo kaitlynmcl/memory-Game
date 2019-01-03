@@ -18,6 +18,16 @@ nav {
     color: papayawhip;
     text-decoration: none;
   }
+
+  .navTitle {
+    font-size: 2.5rem;
+    padding: 2%;
+    margin-left: 1%;
+    margin-top: -8%;
+    margin-bottom: 1%;
+    top: -15%;
+    font-weight: bold;
+  }
   
   nav li {
     display: inline-block;
@@ -33,6 +43,7 @@ nav {
 
   .top {
     font-size: 2rem;
+    margin-left: 30%;
   }
 
   ul {
