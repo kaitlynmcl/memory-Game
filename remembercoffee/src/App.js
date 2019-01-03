@@ -17,11 +17,11 @@ import pic10 from "./components/Nav/images/pic10.jpg";
 import pic11 from "./components/Nav/images/pic11.jpg";
 import pic12 from "./components/Nav/images/pic12.jpg";
 
-                                          // LOADS ARRAY OF IMAGES FOR DISPLAY
+// LOADS ARRAY OF IMAGES FOR DISPLAY
 
 const images = [pic1, pic2, pic3, pic4, pic5, pic6, pic7, pic8, pic9, pic10, pic11, pic12];
 
-                                          // SETS ORIGINAL STATE OF GAME
+// SETS ORIGINAL STATE OF GAME
 class App extends Component {
   state = {
     currentScore: 0,
@@ -32,7 +32,7 @@ class App extends Component {
     rightWrong: ""
   };
 
-  shuffleImgs = arr => {                  // SHUFFLES THROUGH IMAGES TO DISPLAY BEST RESULTS
+  shuffleImgs = arr => {                    // SHUFFLES THROUGH IMAGES TO DISPLAY BEST RESULTS
     for (let i = arr.length - 1; i > 0; i--) {
       let j = Math.floor(Math.random() * (i + 1));
       [arr[i], arr[j]] = [arr[j], arr[i]];
@@ -40,8 +40,8 @@ class App extends Component {
     return arr;
   };
 
-  handleClickImage = elem => {            // EVENT HANDLER FOR CLICKING ON IMAGES
-    var newArray = [...this.state.array]; // CREATES NEW ARRAY TO ITERATE THROUGH CHANGING STATE
+  handleClickImage = elem => {              // EVENT HANDLER FOR CLICKING ON IMAGES
+    var newArray = [...this.state.array];   // CREATES NEW ARRAY TO ITERATE THROUGH CHANGING STATE TO ADD POINTS
 
     if (newArray.length === 0) {
       newArray.push(elem);
@@ -88,12 +88,12 @@ class App extends Component {
           console.log("%ccorrect!", "color: green");
         }
 
-      //  } else if (topScore ===12) {  TODO: MAKE WINNING UPDATE!
-      // this.setState({ rightWrong: "You win!" });
-      // };
-  
-   
-      } else {
+        //  } else if (topScore ===12) {         //TODO: MAKE WINNING UPDATE SO THAT IF USER SELECTS 12 CORRECT, THERE'S A PROMPT!
+        // this.setState({ rightWrong: "You win!" });
+        // };
+
+
+      } else {                                  // GAME RESETS TO 0 IF INCORRECT GUESS IS SELECTED
         this.setState({
           currentScore: 0,
           topScore: 0,
@@ -108,18 +108,8 @@ class App extends Component {
     this.shuffleImgs(images);
   };
 
-  handleReset = () => {
-    this.setState({
-      currentScore: 0,
-      topScore: this.state.topScore,
-      clicked: []
-    });
-    this.shuffleImgs();
-  };
+  render() {                                  // RENDERS NAV, JUMBOTRON, AND FOOTER 
 
-
-  render() {                                // RENDERS NAV, JUMBOTRON, AND FOOTER 
-                             
     return (
       <div>
         <Nav
@@ -144,6 +134,6 @@ class App extends Component {
     );
   }
 }
-export default App;                     // EXPORTS TO APP
+export default App;                       // EXPORTS TO APP
 
 
