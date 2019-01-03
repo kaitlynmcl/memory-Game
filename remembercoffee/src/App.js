@@ -24,12 +24,12 @@ const images = [pic1, pic2, pic3, pic4, pic5, pic6, pic7, pic8, pic9, pic10, pic
                                           // SETS ORIGINAL STATE OF GAME
 class App extends Component {
   state = {
-    score: 0,
-    
+    currentScore: 0,
     topScore: 0,
     array: [],
     correct: "true",
-    incorrect: "false"
+    incorrect: "false",
+    rightWrong: ""
   };
 
   shuffleImgs = arr => {                  // SHUFFLES THROUGH IMAGES TO DISPLAY BEST RESULTS
@@ -48,31 +48,30 @@ class App extends Component {
       this.setState({
         correct: "true"
       });
-      if (this.state.score >= this.state.topScore) {
+      if (this.state.currentScore >= this.state.topScore) {
         this.setState({
-          score: this.state.score + 1,
+          currentScore: this.state.currentScore + 1,
           topScore: this.state.topScore + 1,
           array: newArray,
           correct: "true"
-
         });
         console.log("%ccorrect!", "color: green");
       } else {
         this.setState({
-          score: this.state.score + 1,
+          currentScore: this.state.currentScore + 1,
           topScore: this.state.topScore,
           array: newArray
         });
-        console.log("%ccorrect :/", "color: green");
+        console.log("%ccorrect!", "color: green");
       }
     } else {
       const found = newArray.includes(elem);
 
       if (!found) {
         newArray.push(elem);
-        if (this.state.score >= this.state.topScore) {
+        if (this.state.currentScore >= this.state.topScore) {
           this.setState({
-            score: this.state.score + 1,
+            currentScore: this.state.currentScore + 1,
             topScore: this.state.topScore + 1,
             array: newArray,
             correct: "true"
@@ -80,7 +79,7 @@ class App extends Component {
           console.log("%ccorrect!", "color: green");
         } else {
           this.setState({
-            score: this.state.score + 1,
+            currentScore: this.state.currentScore + 1,
             topScore: this.state.topScore,
             array: newArray,
             correct: "true"
@@ -89,10 +88,15 @@ class App extends Component {
           console.log("%ccorrect!", "color: green");
         }
 
+      //  } else if (topScore ===12) {  TODO: MAKE WINNING UPDATE!
+      // this.setState({ rightWrong: "You win!" });
+      // };
+  
+   
       } else {
         this.setState({
-          score: 0,
-          topScore: this.state.topScore,
+          currentScore: 0,
+          topScore: 0,
           array: [],
           correct: "false"
         });
@@ -104,6 +108,15 @@ class App extends Component {
     this.shuffleImgs(images);
   };
 
+  handleReset = () => {
+    this.setState({
+      currentScore: 0,
+      topScore: this.state.topScore,
+      clicked: []
+    });
+    this.shuffleImgs();
+  };
+
 
   render() {                                // RENDERS NAV, JUMBOTRON, AND FOOTER 
                              
@@ -111,7 +124,7 @@ class App extends Component {
       <div>
         <Nav
           title="Coffee Brain:"
-          score={this.state.currentScore}
+          currentScore={this.state.currentScore}
           topScore={this.state.topScore}
           rightWrong={this.state.rightWrong}>
         </Nav>

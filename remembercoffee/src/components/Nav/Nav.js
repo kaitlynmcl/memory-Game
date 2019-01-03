@@ -8,8 +8,8 @@ const Nav = props => (
         {/* <a href="/clicky-game/">{props.title}</a> */}
       </li>
       <li class="rw">{props.rightWrong}</li>
-      {/* <li class="current">Current Score: {props.score}</li> */}
       <li class="top">Current Score: {props.topScore}</li>
+      <li class="current">Top Score: 12 </li> 
     </ul>
 
     <div class= "navTitle">
