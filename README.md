@@ -3,7 +3,7 @@ This is a memory game that was built using React. The goal of the game is to ach
 
 To run the game locally, download the repository and run it in your terminal. By running npm start, you can visit localhost:3000, and play the game!
 
-For an web version, you can also play the game [here](https://boiling-refuge-85146.herokuapp.com/) !
+For a web version, you can also play the game [here](https://boiling-refuge-85146.herokuapp.com/)!
 
 # Technologies Used
 * React
